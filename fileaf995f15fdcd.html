@@ -1,0 +1,748 @@
+<html><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.2.328">
+  <title>Accessibility (of educational resources)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="accessibility-notes_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="accessibility-notes_files/libs/revealjs/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="accessibility-notes_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+
+  <script src="accessibility-notes_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="accessibility-notes_files/libs/quarto-html/tabby.min.js"></script>
+  <script src="accessibility-notes_files/libs/quarto-html/popper.min.js"></script>
+  <script src="accessibility-notes_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <link href="accessibility-notes_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="accessibility-notes_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+  <link href="accessibility-notes_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <link href="accessibility-notes_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="accessibility-notes_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="accessibility-notes_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="accessibility-notes_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal-references {
+      display: none;
+    }
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">Accessibility (of educational resources)</h1>
+</section>
+
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<p>(Lack of) accessibility considerations in cheatsheets</p>
+<div id="fig-anonymous-8401878" class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf"><img data-src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/data-visualization.png" alt="ggplot2 cheat sheet" width="700"></a></p>
+</figure>
+</div>
+</section>
+<section id="parts-of-the-solution" class="slide level2">
+<h2>(Parts of) the solution</h2>
+<ul>
+<li>Illumino (organization focused on helping companies make their content user-friendly and compliant) will convert 2 cheatsheets to an accessible format so we can learn from their approach</li>
+<li>Illumino will also provide training (details to be determined/announced)</li>
+</ul>
+</section>
+<section id="other-part-of-the-solution" class="slide level2">
+<h2>Other part of the solution</h2>
+<p>Self study</p>
+<div class="fragment">
+<p>… and this is a summary of what I’ve learned so far, particularly from the <a href="https://youtu.be/PAA82Gkhn0c">Duke Language Central Accessibility Fundamentals Workshop</a>.</p>
+</div>
+</section>
+<section id="web-content-accessibility-guidelines-w.c.a.g." class="slide level2">
+<h2>Web Content Accessibility Guidelines (W.C.A.G.)</h2>
+<ul>
+<li>Part of a series of web accessibility guidelines</li>
+<li>Overriding principles: Content should be
+<ul>
+<li><p>Perceivable</p></li>
+<li><p>Operable</p></li>
+<li><p>Understandable</p></li>
+<li><p>Robust</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="perceivable" class="slide level2">
+<h2>Perceivable</h2>
+<ul>
+<li>Alt text</li>
+<li>Text on images</li>
+<li>Color contrast/blindness</li>
+<li>Captioning</li>
+</ul>
+</section>
+<section id="alt-text" class="slide level2">
+<h2>Alt text</h2>
+<ul>
+<li>Content depends on context, e.g., highlight features that matter in the graphic/picture depending on the focus of the text around it</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Resources:
+<ul>
+<li><a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81">Writing Alt Text for Data Visualization by Amy Cesal</a></li>
+<li><a href="https://twitter.com/FrankElavsky/status/1469023374529765385?s=20https://twitter.com/FrankElavsky/status/1469023374529765385?s=20">Twitter thread by Frank Elavsky</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/twitter-required-alt-text/fpjlpckbikddocimpfcgaldjghimjiik?hl=en-US">Twitter Required Alt Text Chrome Extension</a></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="fig-anonymous-3943830" class="quarto-figure quarto-figure-right">
+<figure>
+<p><a href="https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81"><img data-src="https://miro.medium.com/max/2000/1*Ub9OzmeHzT4qlEgdgij5zA.png" alt="alt= “Chart type of type of data where reason for including chart” Include a link to data source somewhere in the text" width="300"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="https://lh3.googleusercontent.com/6wKKqUy73YqujEdprlMdqIoYMov-Wb7m7Z2LHO5V1pqTKMn69mccS6ofC28oyHOtPNBwkN05s_421jB7uBSQhzve7Q0=w640-h400-e365-rj-sc0x00ffffff" alt="New tweet with an image and Chrome Extension alerting that alt text needs to be added" width="301"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="text-overlaid-on-image" class="slide level2">
+<h2>Text overlaid on image</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Don’t add text overlaid on image</li>
+<li>Sighted users can also have difficulty with this</li>
+<li>Auto-translators can’t translate it</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://www.thebroad.org/sites/default/files/styles/artis_bio_page-300px_scale/public/art/kruger_your_body.jpg?itok=9nSEWWfC" alt="Barbara Kruger - Untitled (Your body is a battleground), 1989"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>If there’s text on image, make sure to add it to alt text, but make sure it’s not just accessible to those using screen readers but also those with low-vision as well (so repeat the text in the main body of the text next to the image)</li>
+</ul>
+</section>
+<section id="color-scales" class="slide level2">
+<h2>Color scales</h2>
+<p>Use colorblind friendly scales (e.g., Okabe Ito, viridis).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="accessibility-notes_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="checking-for-color-blind-friendliness" class="slide level2">
+<h2>Checking for color blind friendliness</h2>
+<p>With <a href="https://michelf.ca/projects/sim-daltonism/">Sim Daltonism</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="accessibility-notes_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="colors-and-shapes" class="slide level2">
+<h2>Colors and shapes</h2>
+<p>Color shouldn’t be the only method to understand content, distinguishability should be based on multiple features</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="accessibility-notes_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="color-contrast" class="slide level2">
+<h2>Color contrast</h2>
+<ul>
+<li><p>Background and foreground text should have sufficient contrast to be distinguishable by users with different vision</p></li>
+<li><p>Web app for checking color contrast checking: <a href="https://www.tpgi.com/color-contrast-checker/">Colour Contrast Analyser</a></p></li>
+<li><p>An WIP R package for checking for color contrast: <a href="https://matt-dray.github.io/coloratio"><strong>coloratio</strong></a></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(coloratio) <span class="co"># matt-dray/coloratio</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">cr_get_ratio</span>(<span class="st">"black"</span>, <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 21</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">cr_get_ratio</span>(<span class="st">"#FFFFFF"</span>, <span class="st">"#000000"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 21</code></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">cr_get_ratio</span>(<span class="st">"black"</span>, <span class="st">"gray10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 1.206596</code></pre>
+</div>
+</div>
+</section>
+<section id="color-contrast-1" class="slide level2">
+<h2>Color contrast</h2>
+<ul>
+<li>Recommended contrast ratio depends on text size – smaller the text, more contrast needed</li>
+<li>For 17px text, ratio should be &gt; 4.5</li>
+<li><strong>Cheatsheets note:</strong> Lots of text is VERY small, so we’ll need to make sure contrast is even higher</li>
+</ul>
+</section>
+<section id="use-direct-labeling-on-plots" class="slide level2">
+<h2>Use direct labeling on plots</h2>
+<ul>
+<li><p>Prefer direct labeling where color is used to display information over a legend</p></li>
+<li><p>Quicker to read</p></li>
+<li><p>Ensures graph can be understood without reliance on color</p></li>
+</ul>
+</section>
+<section id="separate-elements-with-whitespace-or-pattern" class="slide level2">
+<h2>Separate elements with whitespace or pattern</h2>
+<p>Allows for distinguishing between data without entirely relying on contrast between colors</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-fig.asp="0.618">
+<div class="cell-output-display">
+<p><img data-src="accessibility-notes_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig.asp="0.618">
+<div class="cell-output-display">
+<p><img data-src="accessibility-notes_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="operable" class="slide level2">
+<h2>Operable</h2>
+<ul>
+<li>Headings</li>
+<li>List items</li>
+<li>Font sizes</li>
+<li>Linked text</li>
+<li>Tables</li>
+</ul>
+</section>
+<section id="headings" class="slide level2">
+<h2>Headings</h2>
+<ul>
+<li><p>Super important to nest headings properly for those using a screen reader and for those who visually scan the page</p></li>
+<li><p><strong>R Markdown note:</strong> Make use of document outline, don’t just use bolded text to visually indicate heading, user <code>##</code> tags instead</p></li>
+</ul>
+</section>
+<section id="list-items" class="slide level2">
+<h2>List items</h2>
+<ul>
+<li>Use real lists, not just dashes</li>
+</ul>
+</section>
+<section id="fonts" class="slide level2">
+<h2>Fonts</h2>
+<ul>
+<li>Use a font that has been tested for accessibility (e.g., <a href="https://brailleinstitute.org/freefont">Atkinson Hyperlegible</a>)</li>
+</ul>
+</section>
+<section id="font-sizes" class="slide level2">
+<h2>Font sizes</h2>
+<ul>
+<li>No official font size for passing WCAG standards</li>
+<li>Studies have shown the optimum size for text is 16px with a line height of 1.5 for readability
+<ul>
+<li><strong>R Markdown note:</strong> Make this default in R Markdown, or at least learnr? Quarto?</li>
+</ul></li>
+<li>Larger text means larger target sizes for links – makes it easier for everyone to click (walking around on mobile device, tremors, etc.)</li>
+<li>Keep plot labels and annotations similarly sized as the rest of your text (e.g., <code>theme_set(theme_minimal(base_size = 16))</code>)</li>
+</ul>
+</section>
+<section id="link-text" class="slide level2">
+<h2>Link text</h2>
+<ul>
+<li><p>Always underline link text</p></li>
+<li><p>Bad: “More”, “Read more”, “Learn more”, “Click here”, “Click the red button on the left”</p></li>
+<li><p>Adequate: “More news”, “Read full article”, “Learn more about cats”, “Click here to read more about cat”</p></li>
+<li><p>To see examples of how bad/better link text behaves in screen reader: <a href="https://youtu.be/PAA82Gkhn0c?t=1712" class="uri">https://youtu.be/PAA82Gkhn0c?t=1712</a></p></li>
+</ul>
+</section>
+<section id="tables" class="slide level2">
+<h2>Tables</h2>
+<ul>
+<li><p>Use header row functionality, not just bolding (but headers don’t exist in all formats, e.g.&nbsp;Google Docs, so use bolding when not possible)</p></li>
+<li><p>Avoid merging cells, screen reader doesn’t read them properly</p>
+<ul>
+<li>Possible solution: Split tables</li>
+</ul></li>
+</ul>
+</section>
+<section id="accessibility-checkers" class="slide level2">
+<h2>Accessibility Checkers</h2>
+<ul>
+<li>MS Word has a built in accessibility checker</li>
+<li>Google Docs doesn’t</li>
+<li><strong>R Markdown note:</strong> Some of these checks could be implemented in an R package for checking Rmds, bookdowns, etc.</li>
+</ul>
+</section>
+<section id="exporting-for-accessibility" class="slide level2">
+<h2>Exporting for accessibility</h2>
+<ul>
+<li>Never do File &gt; Print &gt; Save as PDF – all accessibility efforts disappear</li>
+<li>MS Word/PowerPoint: Save a copy &gt; File Format: PDF</li>
+<li><strong>R Markdown note:</strong> What is the equivalent of this for xaringan, Quarto slides, etc.? ::: {.footer .footer-default}</li>
+</ul>
+<p>:::</p>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="accessibility-notes_files/libs/revealjs/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="accessibility-notes_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="accessibility-notes_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        setTimeout(function() {
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          let href = ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+<div class="reveal-references"></div></body></html>

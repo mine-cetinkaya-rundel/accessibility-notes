@@ -1,0 +1,302 @@
+---
+title: "Accessibility (of educational resources)"
+format: revealjs
+editor: visual
+---
+
+## Motivation
+
+(Lack of) accessibility considerations in cheatsheets
+
+[![](https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/data-visualization.png){fig-alt="ggplot2 cheat sheet" fig-align="center" width="700"}](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
+
+## (Parts of) the solution
+
+-   Illumino (organization focused on helping companies make their content user-friendly and compliant) will convert 2 cheatsheets to an accessible format so we can learn from their approach
+-   Illumino will also provide training (details to be determined/announced)
+
+## Other part of the solution
+
+Self study
+
+. . .
+
+... and this is a summary of what I've learned so far, particularly from the [Duke Language Central Accessibility Fundamentals Workshop](https://youtu.be/PAA82Gkhn0c).
+
+## Web Content Accessibility Guidelines (W.C.A.G.)
+
+-   Part of a series of web accessibility guidelines
+-   Overriding principles: Content should be
+    -   Perceivable
+
+    -   Operable
+
+    -   Understandable
+
+    -   Robust
+
+## Perceivable
+
+-   Alt text
+-   Text on images
+-   Color contrast/blindness
+-   Captioning
+
+## Alt text
+
+-   Content depends on context, e.g., highlight features that matter in the graphic/picture depending on the focus of the text around it
+
+::: columns
+::: {.column width="50%"}
+-   Resources:
+    -   [Writing Alt Text for Data Visualization by Amy Cesal](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
+    -   [Twitter thread by Frank Elavsky](https://twitter.com/FrankElavsky/status/1469023374529765385?s=20https://twitter.com/FrankElavsky/status/1469023374529765385?s=20)
+    -   [Twitter Required Alt Text Chrome Extension](https://chrome.google.com/webstore/detail/twitter-required-alt-text/fpjlpckbikddocimpfcgaldjghimjiik?hl=en-US)
+:::
+
+::: {.column width="50%"}
+[![](https://miro.medium.com/max/2000/1*Ub9OzmeHzT4qlEgdgij5zA.png){fig-alt="alt= “Chart type of type of data where reason for including chart” Include a link to data source somewhere in the text" fig-align="right" width="300"}](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
+
+![](https://lh3.googleusercontent.com/6wKKqUy73YqujEdprlMdqIoYMov-Wb7m7Z2LHO5V1pqTKMn69mccS6ofC28oyHOtPNBwkN05s_421jB7uBSQhzve7Q0=w640-h400-e365-rj-sc0x00ffffff){fig-alt="New tweet with an image and Chrome Extension alerting that alt text needs to be added" fig-align="right" width="301"}
+:::
+:::
+
+## Text overlaid on image
+
+::: columns
+::: {.column width="50%"}
+-   Don't add text overlaid on image
+-   Sighted users can also have difficulty with this
+-   Auto-translators can't translate it
+:::
+
+::: {.column width="50%"}
+![](https://www.thebroad.org/sites/default/files/styles/artis_bio_page-300px_scale/public/art/kruger_your_body.jpg?itok=9nSEWWfC){fig-alt="Barbara Kruger - Untitled (Your body is a battleground), 1989" fig-align="center"}
+:::
+:::
+
+-   If there's text on image, make sure to add it to alt text, but make sure it's not just accessible to those using screen readers but also those with low-vision as well (so repeat the text in the main body of the text next to the image)
+
+## Color scales
+
+Use colorblind friendly scales (e.g., Okabe Ito, viridis).
+
+```{r}
+library(palmerpenguins)
+library(ggplot2)
+library(colorblindr)
+
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = body_mass_g
+  )
+) +
+  geom_point(aes(color = species),
+  size = 3,
+  alpha = 0.8
+  ) +
+  theme_minimal() +
+  colorblindr::scale_color_OkabeIto(darken = 0.2) +
+  labs(
+    title = "Colorblind friendly penguins",
+    subtitle = "colorblindr::scale_color_OkabeIto(darken = 0.2)",
+    x = "Flipper length (mm)",
+    y = "Body mass (g)",
+    color = "Penguin species"
+  ) +
+  theme(
+    legend.position = c(0.2, 0.7),
+    legend.background = element_rect(fill = "white", color = NA),
+    plot.title.position = "plot",
+    plot.caption = element_text(hjust = 0, face = "italic"),
+    plot.caption.position = "plot"
+  )
+```
+
+## Checking for color blind friendliness
+
+With [Sim Daltonism](https://michelf.ca/projects/sim-daltonism/)
+
+```{r}
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = body_mass_g
+  )
+) +
+  geom_point(aes(color = species),
+  size = 3,
+  alpha = 0.8
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Penguins",
+    subtitle = "Default ggplot2 scale",
+    x = "Flipper length (mm)",
+    y = "Body mass (g)",
+    color = "Penguin species"
+  ) +
+  theme(
+    legend.position = c(0.2, 0.7),
+    legend.background = element_rect(fill = "white", color = NA),
+    plot.title.position = "plot",
+    plot.caption = element_text(hjust = 0, face = "italic"),
+    plot.caption.position = "plot"
+  )
+```
+
+## Colors and shapes
+
+Color shouldn't be the only method to understand content, distinguishability should be based on multiple features
+
+```{r}
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = body_mass_g
+  )
+) +
+  geom_point(aes(
+    color = species,
+    shape = species
+  ),
+  size = 3,
+  alpha = 0.8
+  ) +
+  theme_minimal() +
+  colorblindr::scale_color_OkabeIto(darken = 0.2) +
+  labs(
+    title = "Colorblind friendly penguins",
+    subtitle = "shape + colorblindr::scale_color_OkabeIto(darken = 0.2)",
+    x = "Flipper length (mm)",
+    y = "Body mass (g)",
+    color = "Penguin species",
+    shape = "Penguin species"
+  ) +
+  theme(
+    legend.position = c(0.2, 0.7),
+    legend.background = element_rect(fill = "white", color = NA),
+    plot.title.position = "plot",
+    plot.caption = element_text(hjust = 0, face = "italic"),
+    plot.caption.position = "plot"
+  )
+```
+
+## Color contrast
+
+-   Background and foreground text should have sufficient contrast to be distinguishable by users with different vision
+
+-   Web app for checking color contrast checking: [Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/)
+
+-   An WIP R package for checking for color contrast: [**coloratio**](https://matt-dray.github.io/coloratio)
+
+```{r echo = TRUE}
+library(coloratio) # matt-dray/coloratio
+cr_get_ratio("black", "white")
+cr_get_ratio("#FFFFFF", "#000000")
+cr_get_ratio("black", "gray10")
+```
+
+## Color contrast
+
+-   Recommended contrast ratio depends on text size -- smaller the text, more contrast needed
+-   For 17px text, ratio should be \> 4.5
+-   **Cheatsheets note:** Lots of text is VERY small, so we'll need to make sure contrast is even higher
+
+## Use direct labeling on plots
+
+-   Prefer direct labeling where color is used to display information over a legend
+
+-   Quicker to read
+
+-   Ensures graph can be understood without reliance on color
+
+## Separate elements with whitespace or pattern
+
+Allows for distinguishing between data without entirely relying on contrast between colors
+
+::: columns
+::: {.column width="50%"}
+```{r fig.asp = 0.618, fig.width = 5}
+ggplot(penguins,
+       aes(x = island, fill = species)) +
+  geom_bar() +
+  theme_minimal() +
+  theme(legend.position = c(0.8, 0.8))
+```
+:::
+
+::: {.column width="50%"}
+```{r fig.asp = 0.618,fig.width = 5}
+ggplot(penguins,
+       aes(x = island, fill = species)) +
+  geom_bar(color = "white", size = 0.8) +
+  theme_minimal() +
+  theme(legend.position = c(0.8, 0.8))
+```
+:::
+:::
+
+## Operable
+
+-   Headings
+-   List items
+-   Font sizes
+-   Linked text
+-   Tables
+
+## Headings
+
+-   Super important to nest headings properly for those using a screen reader and for those who visually scan the page
+
+-   **R Markdown note:** Make use of document outline, don't just use bolded text to visually indicate heading, user `##` tags instead
+
+## List items
+
+-   Use real lists, not just dashes
+
+## Fonts
+
+-   Use a font that has been tested for accessibility (e.g., [Atkinson Hyperlegible](https://brailleinstitute.org/freefont))
+
+## Font sizes
+
+-   No official font size for passing WCAG standards
+-   Studies have shown the optimum size for text is 16px with a line height of 1.5 for readability
+    -   **R Markdown note:** Make this default in R Markdown, or at least learnr? Quarto?
+-   Larger text means larger target sizes for links -- makes it easier for everyone to click (walking around on mobile device, tremors, etc.)
+-   Keep plot labels and annotations similarly sized as the rest of your text (e.g., `theme_set(theme_minimal(base_size = 16))`)
+
+## Link text
+
+-   Always underline link text
+
+-   Bad: "More", "Read more", "Learn more", "Click here", "Click the red button on the left"
+
+-   Adequate: "More news", "Read full article", "Learn more about cats", "Click here to read more about cat"
+
+-   To see examples of how bad/better link text behaves in screen reader: <https://youtu.be/PAA82Gkhn0c?t=1712>
+
+## Tables
+
+-   Use header row functionality, not just bolding (but headers don't exist in all formats, e.g. Google Docs, so use bolding when not possible)
+
+-   Avoid merging cells, screen reader doesn't read them properly
+
+    -   Possible solution: Split tables
+
+## Accessibility Checkers
+
+-   MS Word has a built in accessibility checker
+-   Google Docs doesn't
+-   **R Markdown note:** Some of these checks could be implemented in an R package for checking Rmds, bookdowns, etc.
+
+## Exporting for accessibility
+
+-   Never do File \> Print \> Save as PDF -- all accessibility efforts disappear
+-   MS Word/PowerPoint: Save a copy \> File Format: PDF
+-   **R Markdown note:** What is the equivalent of this for xaringan, Quarto slides, etc.?
